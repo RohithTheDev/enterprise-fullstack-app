@@ -28,10 +28,15 @@ public class ProductController {
 
     @GetMapping
     public List<Product> getAllProducts(@RequestParam(required = false) String name) {
+        System.out.println("ProductController: getAllProducts called with name=" + name);
+        List<Product> products;
         if (name != null) {
-            return productRepository.findByNameContainingIgnoreCase(name);
+            products = productRepository.findByNameContainingIgnoreCase(name);
+        } else {
+            products = productRepository.findAll();
         }
-        return productRepository.findAll();
+        System.out.println("ProductController: returning " + products.size() + " products");
+        return products;
     }
 
     @GetMapping("/{id}")

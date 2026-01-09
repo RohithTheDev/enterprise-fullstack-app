@@ -1,5 +1,13 @@
 <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
   <h2 class="h3 mb-0 text-primary fw-bold">Our Collection</h2>
+  <div class="d-flex gap-2">
+    <div class="badge bg-secondary" *ngIf="products === undefined">Products: undefined</div>
+    <div class="badge bg-secondary" *ngIf="products === null">Products: null</div>
+    <div class="badge bg-info text-dark" *ngIf="products && products.length === 0">Products: Empty Array</div>
+    <div class="badge bg-success" *ngIf="products && products.length > 0">Products: {{ products.length }} items</div>
+    <button class="btn btn-sm btn-outline-secondary" (click)="fetchProducts()">Refresh</button>
+  </div>
+  <pre *ngIf="products && products.length === 0" class="small bg-light p-2 mt-2">Debug Data: {{ products | json }}</pre>
   <div class="text-muted small">Showing {{ products?.length || 0 }} products</div>
 </div>
 
@@ -12,7 +20,7 @@
         <div *ngIf="!product.imageUrl" class="text-muted">
           <i class="bi bi-image fs-1 opacity-25"></i>
         </div>
-        
+
         <!-- Badge for Low Stock -->
         <span *ngIf="product.stockQuantity < 5" class="position-absolute top-0 end-0 m-2 badge bg-danger shadow-sm">
           Low Stock
@@ -27,11 +35,10 @@
         <p class="card-text text-muted small flex-fill" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
           {{ product.description }}
         </p>
-        
+
         <div class="d-flex justify-content-between align-items-end mt-3">
           <div>
-            <div class="text-muted small text-decoration-line-through" *ngIf="false">$999.99</div> <!-- Placeholder for discount logic -->
-            <div class="fs-5 fw-bold text-dark">${{ product.price }}</div>
+            <div class="fs-5 fw-bold text-dark">₹{{ product.price }}</div>
           </div>
         </div>
       </div>

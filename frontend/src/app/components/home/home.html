@@ -2,7 +2,7 @@
   <div class="container py-5 position-relative z-1">
     <h1 class="display-4 fw-bold mb-3">Next Gen Mobile Technology</h1>
     <p class="lead mb-4 opacity-75 mx-auto" style="max-width: 600px;">
-      Discover the latest smartphones, accessories, and gadgets. 
+      Discover the latest smartphones, accessories, and gadgets.
       Premium quality, official warranty, and unbeatable prices.
     </p>
     <div class="d-flex gap-3 justify-content-center">
@@ -10,7 +10,7 @@
       <a routerLink="/register" class="btn btn-outline-light btn-lg px-5">Join Us</a>
     </div>
   </div>
-  
+
   <!-- Abstract decorative circle -->
   <div class="position-absolute top-0 end-0 translate-middle rounded-circle bg-white opacity-10" style="width: 300px; height: 300px; filter: blur(50px);"></div>
   <div class="position-absolute bottom-0 start-0 translate-middle rounded-circle bg-primary opacity-25" style="width: 400px; height: 400px; filter: blur(60px);"></div>
@@ -49,6 +49,9 @@
 
 <div class="d-flex justify-content-between align-items-center mb-4">
   <h2 class="h3 fw-bold border-start border-primary border-4 ps-3">Featured Products</h2>
+  <div class="badge bg-warning text-dark" *ngIf="loading">Home Loading...</div>
+  <div class="badge bg-danger" *ngIf="error">{{ error }}</div>
+  <div class="badge bg-success" *ngIf="!loading && !error">Home Loaded: {{ products?.length || 0 }}</div>
   <a routerLink="/products" class="btn btn-outline-primary btn-sm">View All <i class="bi bi-arrow-right"></i></a>
 </div>
 

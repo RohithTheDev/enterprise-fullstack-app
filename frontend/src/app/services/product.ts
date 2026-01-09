@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap, catchError, throwError } from 'rxjs';
 
 const API_URL = '/api/products';
 const CAT_API_URL = '/api/categories';
@@ -12,7 +12,14 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getAllProducts(): Observable<any> {
-    return this.http.get(API_URL);
+    console.log('ProductService: Fetching all products from', API_URL);
+    return this.http.get(API_URL).pipe(
+      tap(data => console.log('ProductService: Received products:', data)),
+      catchError(err => {
+        console.error('ProductService: Error fetching products:', err);
+        return throwError(() => err);
+      })
+    );
   }
 
   getProduct(id: any): Observable<any> {
@@ -26,7 +33,7 @@ export class ProductService {
   searchProducts(name: string): Observable<any> {
     return this.http.get(`${API_URL}/search?name=${name}`);
   }
-  
+
   getAllCategories(): Observable<any> {
     return this.http.get(CAT_API_URL);
   }

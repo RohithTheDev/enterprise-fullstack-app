@@ -1,4 +1,4 @@
-# 📱 Mobile Showroom Application
+# 📱 RP Digital Hub Application
 
 [![Spring Boot](https://img.shields.io/badge/Backend-Spring%20Boot%203-brightgreen)](https://spring.io/projects/spring-boot)
 [![Angular](https://img.shields.io/badge/Frontend-Angular%2017-red)](https://angular.io/)

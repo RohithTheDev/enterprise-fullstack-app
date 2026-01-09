@@ -12,7 +12,7 @@ import { CartService } from './services/cart';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'mobile-showroom-frontend';
+  title = 'rp-digital-hub';
   isLoggedIn = false;
   username?: string;
   cartItemCount = 0;
