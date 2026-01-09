@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mobileshowroom.backend.models.ERole;
-import com.mobileshowroom.backend.models.Role;
-import com.mobileshowroom.backend.models.User;
+import com.mobileshowroom.backend.entity.ERole;
+import com.mobileshowroom.backend.entity.Role;
+import com.mobileshowroom.backend.entity.User;
 import com.mobileshowroom.backend.payload.request.LoginRequest;
 import com.mobileshowroom.backend.payload.request.SignupRequest;
 import com.mobileshowroom.backend.payload.response.JwtResponse;

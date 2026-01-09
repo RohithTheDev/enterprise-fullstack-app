@@ -10,8 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.mobileshowroom.backend.models.Product;
-import com.mobileshowroom.backend.models.Category;
+import com.mobileshowroom.backend.entity.Product;
+import com.mobileshowroom.backend.entity.Category;
 import com.mobileshowroom.backend.repository.ProductRepository;
 import com.mobileshowroom.backend.repository.CategoryRepository;
 import com.mobileshowroom.backend.payload.response.MessageResponse;
@@ -72,7 +72,7 @@ public class ProductController {
             product.setName(productRequest.getName());
             product.setDescription(productRequest.getDescription());
             product.setPrice(productRequest.getPrice());
-            product.setStock(productRequest.getStock());
+            product.setStockQuantity(productRequest.getStockQuantity());
             product.setImageUrl(productRequest.getImageUrl());
             
             if (productRequest.getCategory() != null && productRequest.getCategory().getId() != null) {

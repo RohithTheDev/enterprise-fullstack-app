@@ -13,7 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import com.mobileshowroom.backend.models.*;
+import com.mobileshowroom.backend.entity.*;
 import com.mobileshowroom.backend.repository.*;
 import com.mobileshowroom.backend.security.services.UserDetailsImpl;
 import com.mobileshowroom.backend.payload.response.MessageResponse;
@@ -62,7 +62,10 @@ public class OrderController {
             Product product = productRepository.findById(itemRequest.getProductId())
                 .orElseThrow(() -> new RuntimeException("Error: Product not found."));
             
-            OrderItem orderItem = new OrderItem(product, itemRequest.getQuantity(), product.getPrice());
+            OrderItem orderItem = new OrderItem();
+            orderItem.setProduct(product);
+            orderItem.setQuantity(itemRequest.getQuantity());
+            orderItem.setPrice(product.getPrice());
             order.addItem(orderItem);
             
             totalAmount = totalAmount.add(product.getPrice().multiply(new BigDecimal(itemRequest.getQuantity())));
