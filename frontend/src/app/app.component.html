@@ -1,0 +1,91 @@
+<div class="app-container">
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--app-primary);">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <i class="bi bi-phone-fill fs-4"></i>
+        <span class="fw-bold tracking-tight">Mobile Showroom</span>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a routerLink="home" class="nav-link" routerLinkActive="active">
+              <i class="bi bi-house-door me-1"></i> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="products" class="nav-link" routerLinkActive="active">
+              <i class="bi bi-grid me-1"></i> Products
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="showAdminBoard">
+            <a routerLink="admin" class="nav-link" routerLinkActive="active">
+              <i class="bi bi-speedometer2 me-1"></i> Admin
+            </a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a routerLink="cart" class="nav-link position-relative" routerLinkActive="active">
+              <i class="bi bi-cart3 fs-5"></i>
+              <span *ngIf="cartItemCount > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{ cartItemCount }}
+              </span>
+            </a>
+          </li>
+          
+          <ng-container *ngIf="!isLoggedIn">
+            <li class="nav-item ms-2">
+              <a routerLink="login" class="btn btn-outline-light btn-sm px-3">Login</a>
+            </li>
+            <li class="nav-item ms-2">
+              <a routerLink="register" class="btn btn-primary btn-sm px-3">Sign Up</a>
+            </li>
+          </ng-container>
+
+          <ng-container *ngIf="isLoggedIn">
+            <li class="nav-item dropdown ms-3">
+              <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
+                <div class="avatar-circle bg-light text-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                  {{ username?.charAt(0)?.toUpperCase() }}
+                </div>
+                <span>{{ username }}</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" routerLink="profile"><i class="bi bi-person me-2"></i> Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-danger" href (click)="logout()"><i class="bi bi-box-arrow-right me-2"></i> Logout</a></li>
+              </ul>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <div class="container-fluid px-4">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <!-- Enterprise Footer -->
+  <footer class="py-4 mt-auto border-top bg-white">
+    <div class="container-fluid px-4">
+      <div class="d-flex align-items-center justify-content-between small">
+        <div class="text-muted">Copyright &copy; Mobile Showroom 2026</div>
+        <div>
+          <a href="#" class="text-decoration-none text-muted me-3">Privacy Policy</a>
+          <a href="#" class="text-decoration-none text-muted">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

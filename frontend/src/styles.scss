@@ -1,0 +1,89 @@
+/* Import Bootstrap & Icons */
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+/* Enterprise Theme Variables */
+:root {
+  --app-primary: #0f172a;    /* Slate 900 */
+  --app-secondary: #334155;  /* Slate 700 */
+  --app-accent: #2563eb;     /* Blue 600 */
+  --app-success: #10b981;    /* Emerald 500 */
+  --app-danger: #ef4444;     /* Red 500 */
+  --app-warning: #f59e0b;    /* Amber 500 */
+  --app-bg: #f8fafc;         /* Slate 50 */
+  --app-surface: #ffffff;
+  --app-text-main: #1e293b;
+  --app-text-muted: #64748b;
+  --app-border: #e2e8f0;
+}
+
+/* Global Typography */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--app-bg);
+  color: var(--app-text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--app-primary);
+  margin-bottom: 1rem;
+}
+
+/* Global Components */
+.card {
+  border: 1px solid var(--app-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  background-color: var(--app-surface);
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+  &.hover-effect:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+  }
+}
+
+.btn-primary {
+  background-color: var(--app-accent);
+  border-color: var(--app-accent);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  
+  &:hover {
+    background-color: darken(#2563eb, 5%);
+    border-color: darken(#2563eb, 5%);
+  }
+}
+
+.form-control {
+  border-color: var(--app-border);
+  padding: 0.625rem 0.75rem;
+  
+  &:focus {
+    border-color: var(--app-accent);
+    box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.25);
+  }
+}
+
+/* Enterprise Layout Helpers */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--app-border);
+}

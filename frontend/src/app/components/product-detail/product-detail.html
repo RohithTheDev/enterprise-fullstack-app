@@ -1,0 +1,15 @@
+<div class="container" *ngIf="product">
+  <div class="row">
+    <div class="col-md-6">
+      <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="img-fluid" alt="{{ product.name }}">
+    </div>
+    <div class="col-md-6">
+      <h2>{{ product.name }}</h2>
+      <p class="lead">{{ product.description }}</p>
+      <h3 class="text-primary">${{ product.price }}</h3>
+      <p>Category: {{ product.category.name }}</p>
+      <p>Stock: {{ product.stockQuantity }}</p>
+      <button class="btn btn-success btn-lg" (click)="addToCart()">Add to Cart</button>
+    </div>
+  </div>
+</div>

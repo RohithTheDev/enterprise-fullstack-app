@@ -1,0 +1,55 @@
+<div class="hero-section bg-dark text-white text-center py-5 mb-5 rounded-3 position-relative overflow-hidden" style="background: linear-gradient(135deg, var(--app-primary) 0%, var(--app-accent) 100%);">
+  <div class="container py-5 position-relative z-1">
+    <h1 class="display-4 fw-bold mb-3">Next Gen Mobile Technology</h1>
+    <p class="lead mb-4 opacity-75 mx-auto" style="max-width: 600px;">
+      Discover the latest smartphones, accessories, and gadgets. 
+      Premium quality, official warranty, and unbeatable prices.
+    </p>
+    <div class="d-flex gap-3 justify-content-center">
+      <a routerLink="/products" class="btn btn-light btn-lg px-5 fw-bold text-primary">Shop Now</a>
+      <a routerLink="/register" class="btn btn-outline-light btn-lg px-5">Join Us</a>
+    </div>
+  </div>
+  
+  <!-- Abstract decorative circle -->
+  <div class="position-absolute top-0 end-0 translate-middle rounded-circle bg-white opacity-10" style="width: 300px; height: 300px; filter: blur(50px);"></div>
+  <div class="position-absolute bottom-0 start-0 translate-middle rounded-circle bg-primary opacity-25" style="width: 400px; height: 400px; filter: blur(60px);"></div>
+</div>
+
+<!-- Value Props -->
+<div class="row g-4 mb-5 text-center">
+  <div class="col-md-4">
+    <div class="p-4 border rounded-3 bg-white h-100 shadow-sm hover-effect">
+      <div class="text-primary mb-3">
+        <i class="bi bi-truck fs-1"></i>
+      </div>
+      <h5 class="fw-bold">Fast Delivery</h5>
+      <p class="text-muted small mb-0">Get your devices delivered within 24 hours in select cities.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="p-4 border rounded-3 bg-white h-100 shadow-sm hover-effect">
+      <div class="text-primary mb-3">
+        <i class="bi bi-shield-check fs-1"></i>
+      </div>
+      <h5 class="fw-bold">Official Warranty</h5>
+      <p class="text-muted small mb-0">All products come with 1-year official manufacturer warranty.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="p-4 border rounded-3 bg-white h-100 shadow-sm hover-effect">
+      <div class="text-primary mb-3">
+        <i class="bi bi-headset fs-1"></i>
+      </div>
+      <h5 class="fw-bold">24/7 Support</h5>
+      <p class="text-muted small mb-0">Our expert team is available round the clock to assist you.</p>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2 class="h3 fw-bold border-start border-primary border-4 ps-3">Featured Products</h2>
+  <a routerLink="/products" class="btn btn-outline-primary btn-sm">View All <i class="bi bi-arrow-right"></i></a>
+</div>
+
+<app-product-list [products]="products"></app-product-list>

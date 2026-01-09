@@ -1,0 +1,43 @@
+<div class="container" *ngIf="currentUser; else loggedOut">
+  <header class="jumbotron">
+    <h3>
+      <strong>{{ currentUser.username }}</strong> Profile
+    </h3>
+  </header>
+  <p>
+    <strong>Email:</strong>
+    {{ currentUser.email }}
+  </p>
+  <div>
+    <strong>Roles:</strong>
+    <ul>
+      <li *ngFor="let role of currentUser.roles">
+        {{ role }}
+      </li>
+    </ul>
+  </div>
+  
+  <hr>
+  
+  <h3>My Orders</h3>
+  <div *ngIf="orders.length === 0">
+      <p>No orders found.</p>
+  </div>
+  <div *ngFor="let order of orders" class="card mb-3">
+      <div class="card-header">
+          Order #{{ order.id }} - {{ order.status }} - {{ order.orderDate | date }}
+      </div>
+      <div class="card-body">
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngFor="let item of order.items">
+                  {{ item.product.name }} - {{ item.quantity }} x ${{ item.price }}
+              </li>
+          </ul>
+          <p class="mt-2"><strong>Total: ${{ order.totalAmount }}</strong></p>
+      </div>
+  </div>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>
