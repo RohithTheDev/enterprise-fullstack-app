@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_URL = 'http://localhost:8080/api/products';
-const CAT_API_URL = 'http://localhost:8080/api/categories';
+const API_URL = '/api/products';
+const CAT_API_URL = '/api/categories';
 
 @Injectable({
   providedIn: 'root'

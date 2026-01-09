@@ -99,6 +99,25 @@ Visit [http://localhost:4200](http://localhost:4200) in your browser.
 
 ---
 
+## 🌐 Deployment
+
+### 1. Backend (Spring Boot)
+The backend requires a Java runtime and a PostgreSQL database. It is recommended to deploy it to a platform like **Railway**, **Render**, or **AWS**.
+- **Environment Variables**:
+  - `SPRING_DATASOURCE_URL`: PostgreSQL connection string.
+  - `SPRING_DATASOURCE_USERNAME`: Database username.
+  - `SPRING_DATASOURCE_PASSWORD`: Database password.
+  - `JWT_SECRET`: A secure random string for JWT signing.
+  - `ALLOWED_ORIGIN`: The URL of your deployed frontend (e.g., `https://your-app.vercel.app`).
+
+### 2. Frontend (Angular) on Vercel
+1. Push your code to a GitHub repository.
+2. Connect the repository to **Vercel**.
+3. Vercel will automatically detect the Angular project.
+4. Update the `destination` URL in [vercel.json](file:///d:/RP%20Digital%20Hub/mobile-showroom/vercel.json) to point to your deployed backend.
+
+---
+
 ## 🛠️ Troubleshooting
 
 - **Docker Issues**: Ensure Docker Desktop is running. If `deploy.bat` fails, try running `docker-compose down -v` and then `docker-compose up`.
